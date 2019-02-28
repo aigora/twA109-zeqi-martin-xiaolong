@@ -11,10 +11,10 @@ Martin Augusto|Reigadas Teran|martinrteran
 ## Objetivos del trabajo
 
 * Crear un sistema de seguridad básico.
-*Poder detectar objetos en movimiento en una determinada área.
-*Asegurarse de que lo que detecte sea un intruso.
-*El control de los aparatos a partir de un arduino.
-*Programar el arduino para que lea los datos de los sensores.
-*Que el arduino envie los datos recibidos al ordenador.
-*Que el  ordenador guarde los datos.
+* Poder detectar objetos en movimiento en una determinada área.
+* Asegurarse de que lo que detecte sea un intruso.
+* El control de los aparatos a partir de un arduino.
+* Programar el arduino para que lea los datos de los sensores.
+* Que el arduino envie los datos recibidos al ordenador.
+* Que el  ordenador guarde los datos.
  
