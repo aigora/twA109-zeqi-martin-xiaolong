@@ -18,5 +18,3 @@ Martin Augusto|Reigadas Teran|martinrteran
     *Que el arduino envie los datos recibidos al ordenador
     *Que el  ordenador guarde los datos
  
-
-Lista de los objetivos que se persiguen con el trabajo propuesto.
