@@ -1,11 +1,22 @@
 # Título del trabajo
-
-Descripción breve del proyecto a realizar (2-3 frases).
-
+_Sistema antirrobo_ que detecte a un intruso dentro de un rango, y almacenará los datos en un ordenador, mediante un arduino.
+  
 ## Integrantes del equipo
-
-Nombres, apellidos, y usuario GitHub de los integrantes del equipo.
+Nombres | Apellidos | Nombre de usuario
+--------|-----------|------------------
+Zeqi | Lin| zeqilin
+Xialong|Ruan|RUANNN96
+Martin Augusto|Reigadas Teran|martinrteran
 
 ## Objetivos del trabajo
+
+* Crear un sistema de seguridad básico
+    *Poder detectar objetos en movimiento en una determinada área
+    *Asegurarse de que lo que detecte sea un intruso
+    *El control de los aparatos a partir de un arduino
+    *Programar el arduino para que lea los datos de los sensores
+    *Que el arduino envie los datos recibidos al ordenador
+    *Que el  ordenador guarde los datos
+ 
 
 Lista de los objetivos que se persiguen con el trabajo propuesto.
