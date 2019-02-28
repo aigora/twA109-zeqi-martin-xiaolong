@@ -5,7 +5,7 @@ _Sistema antirrobo_ que detecte a un intruso dentro de un rango, y almacenará l
 Nombres | Apellidos | Nombre de usuario
 --------|-----------|------------------
 Zeqi | Lin| zeqilin
-Xialong|Ruan|RUANNN96
+Xiaolong|Ruan|RUANNN96
 Martin Augusto|Reigadas Teran|martinrteran
 
 ## Objetivos del trabajo
