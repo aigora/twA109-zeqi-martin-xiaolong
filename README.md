@@ -18,3 +18,9 @@ Martin Augusto|Reigadas Teran|martinrteran
 * Que el arduino envie los datos recibidos al ordenador.
 * Que el  ordenador guarde los datos.
  
+## Sensores y actuadores
+
+* Sensor de ultrasonidos
+* Sensor infrarrojo pasivo
+* Sensor de movimiento
+* Servomotor
