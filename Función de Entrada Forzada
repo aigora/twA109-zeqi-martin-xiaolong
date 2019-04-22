@@ -1,0 +1,72 @@
+const int TriggerPin = 9;
+const int EchoPin =8;
+const int PUL = 3;
+int distancia_o;
+unsigned long tiempo_o=0;
+
+void setup() {
+
+Serial.begin(9600);
+pinMode(PUL,INPUT);
+pinMode(TriggerPin,OUTPUT);
+pinMode(EchoPin,INPUT);
+delay(1000);
+distancia_o=ping(TriggerPin,EchoPin);
+Serial.println(distancia_o);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+unsigned long tiempo=millis();
+int intervalo=500;
+
+if(tiempo-tiempo_o>intervalo){
+pulsador(digitalRead(PUL),intervalo);
+tiempo_o=millis();
+
+}
+
+}
+
+void pulsador(int estado,int intervalo){
+  float desfase;
+  if(estado)
+  {
+   desfase=variacion(distancia_o,intervalo);
+   Serial.print("EL desfase es");
+   Serial.println(desfase);
+   if(desfase != 0)
+   {
+    Serial.println("Enviar 2");
+    }
+    }
+  }
+
+
+int variacion(int distancia_o,int intervalo){
+  int distancia_f,diferencia;
+  float variacion;
+ 
+
+  
+  distancia_f=ping(TriggerPin,EchoPin);
+  diferencia=distancia_f-distancia_o;
+    Serial.println(diferencia);
+    intervalo=intervalo/100;
+  variacion=(float) diferencia/intervalo;
+    
+  return variacion;
+  }
+
+int ping(int TriggerPin,int EchoPin){
+  long duration, distanceCm;
+  digitalWrite(TriggerPin,LOW);
+  delayMicroseconds(4);
+  digitalWrite(TriggerPin,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TriggerPin,LOW);
+
+  duration= pulseIn(EchoPin,HIGH);
+  distanceCm = duration *10 /292 /2;
+  return distanceCm;
+  }
