@@ -33,9 +33,10 @@ void pulsador(int estado,int intervalo){
   if(estado)
   {
    desfase=variacion(distancia_o,intervalo);
+   desfase=abs(desfase);
    Serial.print("EL desfase es");
    Serial.println(desfase);
-   if(desfase != 0)
+   if(desfase > 1.5)
    {
     Serial.println("Enviar 2");
     }
@@ -43,7 +44,7 @@ void pulsador(int estado,int intervalo){
   }
 
 
-int variacion(int distancia_o,int intervalo){
+float variacion(int distancia_o,int intervalo){
   int distancia_f,diferencia;
   float variacion;
  
