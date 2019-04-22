@@ -3,6 +3,7 @@ const int EchoPin =8;
 const int PUL = 3;
 int distancia_o;
 unsigned long tiempo_o=0;
+const float DESFASE_SIG=1.5;
 
 void setup() {
 
@@ -36,7 +37,7 @@ void pulsador(int estado,int intervalo){
    desfase=abs(desfase);
    Serial.print("EL desfase es");
    Serial.println(desfase);
-   if(desfase > 1.5)
+   if(desfase > DESFASE_SIG)
    {
     Serial.println("Enviar 2");
     }
