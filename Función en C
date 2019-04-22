@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<windows.h>
+#include<time.h>
+
+
+void sonar_alarma(int);
+void fecha(void);
+
+int main(){/*'dato' es el dato recibido por el ordenador enviado desde el arduino*/
+	int dato,estado=0,etado_esp=0;/*El estado es una bandera que sirvirá para evitar repetir un proceso*/
+	clock_t t_inicial,t_actual;
+	double segundos;
+	
+	t_inicial=clock();
+	segundos=(double) (t_actual-t_inicial)/CLOCKS_PER_SEC;
+
+	/*Para cada valor de dato que devuelva el arduino se ejecutará una función*/
+	switch(dato){
+		case 1:
+			if(estado==0)
+				printf("Alarma Activada\n");
+			fecha();
+			estado=1;
+			sonar_alarma(estado);
+			break;
+		case 2:
+			if(estado_esp==0)
+				printf("La entrada ha sido forzada\n");
+				fecha();
+			estado_esp=1;
+			sonar_alarma(estado);
+			break;
+		case 3:
+			if(estado==1){
+				printf("Alarma Desactivada\n");
+				fecha();
+				estado=0;
+				estado_esp=0;
+				sonar_alarma(estado);
+			}
+			break;
+	}
+}
+
+void sonar_alarma(int activacion){
+}
+
+
+}
+void fecha(void){
+	    char fecha[25];
+    time_t current_time;
+    current_time=time(NULL);
+    ctime(&current_time);
+    strcpy(fecha, ctime(&current_time));
+    printf("%s\n", fecha);
+	
+}
