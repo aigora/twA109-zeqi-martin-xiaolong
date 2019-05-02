@@ -23,4 +23,4 @@ Martin Augusto|Reigadas Teran|martinrteran
 * Sensor de ultrasonidos
 * Sensor infrarrojo pasivo
 * Sensor de movimiento
-* Servomotor
+* Pulsador
