@@ -1,4 +1,4 @@
-#define Max_on 10
+#define Max_on 10  // Los tiempos maximos se cambiarán
 #define Max_off 10
 
 const int PIR=12;
