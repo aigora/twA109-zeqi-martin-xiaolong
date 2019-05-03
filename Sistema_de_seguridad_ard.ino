@@ -25,13 +25,12 @@ distancia_o=ping(TriggerPin,EchoPin);
 }
 
 void loop() {
-  unsigned long t_a;//tiempo actual
   int pir;
   int lectura;
   lectura=digitalRead(PUL_Puerta);
   pir=digitalRead(PIR);
   
-  InfraRedSensor(pir,&t_a);
+  InfraRedSensor(pir);
 
   
   if(lectura==1 && h==0){
@@ -45,7 +44,7 @@ void loop() {
  
 }
   
-void InfraRedSensor(int pir,unsigned long * t_a){
+void InfraRedSensor(int pir){
    int d_on,d_off;//desfases de tiempo para cuando pir==1 y para pir==0
    
   if(pir==1){
@@ -53,9 +52,9 @@ void InfraRedSensor(int pir,unsigned long * t_a){
     if(flag==1){
       a=0;
     d_off=0;
-   intervalo(&d_on,*t_a);
+   intervalo(&d_on);
   }else{
-     intervalo(&d_on,*t_a);
+     intervalo(&d_on);
      if(d_on>Max_on){
        Serial.print('2');
        flag=1;
@@ -66,7 +65,7 @@ void InfraRedSensor(int pir,unsigned long * t_a){
   }else {
      
     if(flag==1){
-    intervalo(&d_off,*t_a);
+    intervalo(&d_off);
     
     if(d_off>Max_off){
     Serial.print('3');
@@ -76,7 +75,7 @@ void InfraRedSensor(int pir,unsigned long * t_a){
 
   }else{
       a=0;
-    intervalo(&d_off,*t_a);
+    intervalo(&d_off);
     d_on=0;
     }
     }
@@ -84,8 +83,9 @@ void InfraRedSensor(int pir,unsigned long * t_a){
 }
 
 
-void intervalo(int * des,unsigned long tiempo_actual){
-   if(a==0)
+void intervalo(int * des){
+   unsigned long tiempo_actual
+  if(a==0)
  {
    t_i=millis()/1000;
     *des = 0;
