@@ -23,7 +23,7 @@ int main(void)
 {
  /*Arduino SerialPort object*/
  SerialPort *arduino;
- /* Puerto serie en el que está Arduino*/
+ /* Puerto serie en el que estÃ¡ Arduino*/
  char* portName = "COM7";
  /* Buffer para datos procedentes de Arduino*/
  char incomingData[MAX_DATA_LENGTH];
@@ -41,18 +41,18 @@ void autoConnect(SerialPort *arduino,char *incomingData)
 {
  int readResult;
 
-/* Espera la conexión con Arduino*/
+/* Espera la conexiÃ³n con Arduino*/
 while (!isConnected(arduino))
 {
 Sleep(100);
 Crear_Conexion(arduino,arduino->portName);
 }
- /*Comprueba si arduino está connectado*/
+ /*Comprueba si arduino estÃ¡ connectado*/
 if (isConnected(arduino))
 {
 printf ("Conectado con Arduino en el puerto %s\n",arduino->portName);
 }
- /*Bucle de la aplicación*/
+ /*Bucle de la aplicaciÃ³n*/
 while (isConnected(arduino))
 {
  readResult = readSerialPort(arduino,incomingData,MAX_DATA_LENGTH);
@@ -64,7 +64,7 @@ if (readResult!=0){
  
 }
 if (!isConnected(arduino))
- printf ("Se ha perdido la conexión con Arduino\n");
+ printf ("Se ha perdido la conexiÃ³n con Arduino\n");
 }
 
 
@@ -87,7 +87,8 @@ void lectura(char *d){
 	Recep info;
 	char Intruso[]="Intruso en la zona";
 	char Activa[]="Alarma Activada";
-	char Desactiva[]="Intruso fuera de la zona";
+	char NoIntruso[]="Intruso fuera de la zona";
+	char Desactivar[]="Alarma Desactivada";
 	
 	switch(d[0]){
 		case '1':
@@ -100,7 +101,11 @@ void lectura(char *d){
 			break;
 		case '3':
 			fecha(info.fecha);
-			strcpy(info.dato,Desactiva);
+			strcpy(info.dato,NoIntruso);
+			break;
+		case '4':
+			fecha(info.fecha);
+			strcpy(info.dato,Desactivar);
 			break;
 		
 	}
