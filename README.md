@@ -21,5 +21,5 @@ Martin Augusto|Reigadas Teran|martinrteran
 ## Sensores y actuadores
 
 * Sensor de ultrasonidos
-* Sensor de movimiento infrarojo pasivo
+* Sensor de movimiento infrarrojo pasivo
 * Pulsador
