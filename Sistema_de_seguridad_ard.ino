@@ -36,7 +36,7 @@ void loop() {
   if(lectura==1 && h==0){
     pulsador(&h);
    }
-  if(h==1)
+  if(digitalRead(PUL_Desactivar))
   {
     Serial.print('4');
     h=0;
