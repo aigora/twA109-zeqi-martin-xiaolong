@@ -1,15 +1,15 @@
 #define Max_on 30 
 #define Max_off 30 //en segundos
-#define D_MAX 10 // en cm
+#define D_MAX 20 // en cm
 
 const int PIR=12;
-char flag=0,a=0,h=0;
+char flag=0,a=0;
 unsigned long t_i; // tiempo inicial
 const int TriggerPin = 9;
 const int EchoPin =8;
-const int PUL_Puerta= 3;
-const int PUL_Desactivar=4;
-int distancia_o;
+const int PUL_Puerta= 4;
+const int PUL_Desactivar=5;
+int distancia_o,h=0,p=0;
 
 
 
@@ -25,21 +25,21 @@ distancia_o=ping(TriggerPin,EchoPin);
 }
 
 void loop() {
-  int pir;
-  int lectura;
+  int pir,lectura,p_des;
   lectura=digitalRead(PUL_Puerta);
   pir=digitalRead(PIR);
-  
+  p_des=digitalRead(PUL_Desactivar);
   InfraRedSensor(pir);
 
   
   if(lectura==1 && h==0){
-    pulsador(&h);
+    h = pulsador();
    }
-  if(digitalRead(PUL_Desactivar))
+  if(p_des==1 && p==0)
   {
     Serial.print('4');
-    h=0;
+    p=1;
+      h=0;
   }
  
 }
@@ -98,18 +98,19 @@ void intervalo(int * des){
 
 
 
- void pulsador(int* c){
+ int pulsador(void){
     int distancia_f;
     int diferencia;
-  
+    int c=0;
     distancia_f = ping(TriggerPin,EchoPin);
    diferencia=abs(distancia_f-distancia_o);
 
    if(diferencia > D_MAX){
       Serial.print('1');
-       *c=1;
+     p=0;
+       c=1;
   }
-  *c=0
+  return c;
   }
 
 
